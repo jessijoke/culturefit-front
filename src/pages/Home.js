@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from '../components/Navigation';
-import './home.scss'
+import './home.css'
 
 export default class Home extends Component {
   render() {

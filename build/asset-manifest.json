@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.5b4ba474.chunk.css",
-    "main.js": "/static/js/main.b6927f30.chunk.js",
-    "main.js.map": "/static/js/main.b6927f30.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.a6208c69.js",
-    "runtime-main.js.map": "/static/js/runtime-main.a6208c69.js.map",
-    "static/js/2.d6f75a97.chunk.js": "/static/js/2.d6f75a97.chunk.js",
-    "static/js/2.d6f75a97.chunk.js.map": "/static/js/2.d6f75a97.chunk.js.map",
-    "static/js/3.e078d772.chunk.js": "/static/js/3.e078d772.chunk.js",
-    "static/js/3.e078d772.chunk.js.map": "/static/js/3.e078d772.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.5b4ba474.chunk.css.map": "/static/css/main.5b4ba474.chunk.css.map",
-    "static/js/2.d6f75a97.chunk.js.LICENSE.txt": "/static/js/2.d6f75a97.chunk.js.LICENSE.txt",
-    "static/media/home.scss": "/static/media/employees2.4affe0f4.png",
-    "static/media/logo.6ce24c58.svg": "/static/media/logo.6ce24c58.svg"
+    "main.css": "/culturefit-front/static/css/main.45905d59.chunk.css",
+    "main.js": "/culturefit-front/static/js/main.b6927f30.chunk.js",
+    "main.js.map": "/culturefit-front/static/js/main.b6927f30.chunk.js.map",
+    "runtime-main.js": "/culturefit-front/static/js/runtime-main.9a9692be.js",
+    "runtime-main.js.map": "/culturefit-front/static/js/runtime-main.9a9692be.js.map",
+    "static/js/2.d6f75a97.chunk.js": "/culturefit-front/static/js/2.d6f75a97.chunk.js",
+    "static/js/2.d6f75a97.chunk.js.map": "/culturefit-front/static/js/2.d6f75a97.chunk.js.map",
+    "static/js/3.e078d772.chunk.js": "/culturefit-front/static/js/3.e078d772.chunk.js",
+    "static/js/3.e078d772.chunk.js.map": "/culturefit-front/static/js/3.e078d772.chunk.js.map",
+    "index.html": "/culturefit-front/index.html",
+    "static/css/main.45905d59.chunk.css.map": "/culturefit-front/static/css/main.45905d59.chunk.css.map",
+    "static/js/2.d6f75a97.chunk.js.LICENSE.txt": "/culturefit-front/static/js/2.d6f75a97.chunk.js.LICENSE.txt",
+    "static/media/home.scss": "/culturefit-front/static/media/employees2.4affe0f4.png",
+    "static/media/logo.6ce24c58.svg": "/culturefit-front/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.a6208c69.js",
+    "static/js/runtime-main.9a9692be.js",
     "static/js/2.d6f75a97.chunk.js",
-    "static/css/main.5b4ba474.chunk.css",
+    "static/css/main.45905d59.chunk.css",
     "static/js/main.b6927f30.chunk.js"
   ]
 }
