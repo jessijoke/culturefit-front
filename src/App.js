@@ -16,8 +16,8 @@ function App(props) {
         <Switch>
         <>
         <Route exact path={"/"} component={Home} />
-          <Route exact path={"/culturefit-front/signup"} component={Signup} />
-          <Route exact path={"/culturefit-front/login"} component={Login} />
+          <Route exact path={"/signup"} component={Signup} />
+          <Route exact path={"/login"} component={Login} />
         </>
         </Switch>
       </Router>
