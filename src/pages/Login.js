@@ -15,7 +15,7 @@ export default class Login extends Component {
                 <div className="signupLoginLavel">Username*</div>
                   <input type="text" className="textInput" name="name"/><br />
 
-                  <div className="signupLoginLavel passwordForm">Password*</div>
+                  <div className="signupLoginLavel">Password*</div>
                   <input type="password" className="textInput" name="password"/><br />
 
                   <div className="centerSubmitButton">
