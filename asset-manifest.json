@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/culturefit-front/static/css/main.d407816a.chunk.css",
-    "main.js": "/culturefit-front/static/js/main.097750f2.chunk.js",
-    "main.js.map": "/culturefit-front/static/js/main.097750f2.chunk.js.map",
+    "main.js": "/culturefit-front/static/js/main.bd4a717a.chunk.js",
+    "main.js.map": "/culturefit-front/static/js/main.bd4a717a.chunk.js.map",
     "runtime-main.js": "/culturefit-front/static/js/runtime-main.9a9692be.js",
     "runtime-main.js.map": "/culturefit-front/static/js/runtime-main.9a9692be.js.map",
     "static/js/2.d0f04384.chunk.js": "/culturefit-front/static/js/2.d0f04384.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.9a9692be.js",
     "static/js/2.d0f04384.chunk.js",
     "static/css/main.d407816a.chunk.css",
-    "static/js/main.097750f2.chunk.js"
+    "static/js/main.bd4a717a.chunk.js"
   ]
 }
