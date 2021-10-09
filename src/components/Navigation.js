@@ -5,12 +5,15 @@ export default class Navigation extends Component {
     render() {
         return(
             <nav className="navBarFlexContainer">
-            <div className="navLogo"><span className="cultureLogo">culture</span><span className="fitLogo">Fit</span></div>
+            <a href="/#/"><div className="navLogo"><span className="cultureLogo">culture</span><span className="fitLogo">Fit</span></div></a>
                 <div className="navBarInnerContainer">
                     
-                    <div className="navElement"><a href="/#/">Home</a></div>
-                    <div className="navElement"><a href="/#/signup">Signup</a></div>
-                    <div className="navElement"><a href="/#/login">Login</a></div>
+                    <div className="navElement">
+                        <a href="/#/signup">Sign up</a>
+                        <span className="signupInDivider"> | </span>
+                        <a href="/#/signin">Sign in</a>
+                    </div>
+                    
                 </div>
             </nav>
         )

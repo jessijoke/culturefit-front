@@ -95,34 +95,41 @@ class Signup extends Component {
     
   render() {
       return(
-          <div>
-          <Navigation />
-          <h1>Sign Up</h1>
-          <form>
-            <label>Username</label><br />
-            <input type="text" name="name" onChange={this.handleChange}/><br />
+          <div className="signupLoginBody">
+            <Navigation />
+            <div className="signupLogin">
+                <h1>Sign Up</h1>
+                <div className="signupLoginForm">
+                    <form>
+                        <div className="signupLoginLavel">Username*</div>
+                        <input type="text" className="textInput" name="name" onChange={this.handleChange}label="username" /><br />
 
-            <label>Email</label><br />
-            <input type="text" name="email" onChange={this.handleChange}/><br />
+                        <div className="signupLoginLavel">Email*</div>
+                        <input type="text" className="textInput" name="email" onChange={this.handleChange} label="email" /><br />
 
-            <label>Account Type</label><br />
-            <input type="radio" id="company" name="user_type" value="company" onChange={this.handleChange}/>
-            <label htmlFor="company">Company</label>
-            <input type="radio" id="job_seeker" name="user_type" value="job_seeker" onChange={this.handleChange}/>
-            <label htmlFor="job_seeker">Job Seeker</label>
-            
-            <br />
+                        <div className="signupLoginLavel">Account Type*</div>
+                        <input type="radio" id="company" name="user_type" value="company" onChange={this.handleChange}/>
+                        <label htmlFor="company">Company</label>
+                        <input type="radio" id="job_seeker" name="user_type" value="job_seeker" onChange={this.handleChange}/>
+                        <label htmlFor="job_seeker">Job Seeker</label>
+                        
+                        <br />
 
-            <label>Password</label><br />
-            <input type="password" name="password" onChange={this.handleChange}/><br />
-            
+                        <div className="signupLoginLavel passwordForm">Password*</div>
+                        <input type="password" className="textInput" name="password" onChange={this.handleChange} label="password" /><br />
+                        
 
-            <label>Confirm Password</label><br />
-            <input type="password" name="confirmpass" onChange={this.handleChange}/><br />
-            { this.state.signupError }
+                        <div className="signupLoginLavel">Confirm Password*</div>
+                        <input type="password" className="textInput" name="confirmpass" onChange={this.handleChange} label="confirm password" /><br />
+                        { this.state.signupError }
 
-            <input type="submit" value="Sign Up" className="submitButton" onClick={this.handleSubmit}/>
-          </form>
+                        <div className="centerSubmitButton">
+                            <input type="submit" value="Sign Up" className="submitButton" onClick={this.handleSubmit}/>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
           </div>
       )
   }  

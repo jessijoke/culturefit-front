@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import Navigation from '../components/Navigation';
+import './signupLogin.css';
 
 
 export default class Login extends Component {
   render() {
       return(
-          <div>
-          <Navigation />
-          <h1>Log In</h1>
-          <form>
-            <label>Username</label><br />
-            <input type="text" name="name"/><br />
-            <br />
+          <div className="signupLoginBody">
+            <Navigation />
+            <div className="signupLogin">
+              <h1>Sign In</h1>
+              <div className="signupLoginForm">
+                <form>
+                <div className="signupLoginLavel">Username*</div>
+                  <input type="text" className="textInput" name="name"/><br />
 
-            <label>Password</label><br />
-            <input type="password" name="password"/><br />
+                  <div className="signupLoginLavel passwordForm">Password*</div>
+                  <input type="password" className="textInput" name="password"/><br />
 
-            <input type="submit" value="Log in" className="submitButton"/>
-          </form>
+                  <div className="centerSubmitButton">
+                    <input type="submit" value="Sign in" className="submitButton"/>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
       )
   }  
