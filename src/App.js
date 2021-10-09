@@ -12,7 +12,7 @@ function App(props) {
 
   return (
     <div className="App">
-      <Router basename={"/culturefit-front"}>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
         <>
         <Route exact path="/" component={Home} />
