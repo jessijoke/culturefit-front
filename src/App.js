@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {HashRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -12,12 +12,12 @@ function App(props) {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
         <>
-        <Route exact path="/" component={Home} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/login" component={Login} />
+        <Route exact path={process.env.PUBLIC_URL + "/"} component={Home} />
+          <Route exact path={process.env.PUBLIC_URL + "/signup"} component={Signup} />
+          <Route exact path={process.env.PUBLIC_URL + "/login"} component={Login} />
         </>
         </Switch>
       </Router>
