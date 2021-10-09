@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Navigation from '../components/Navigation';
-import { LoginAction } from '../actions/loginAction'
+import { connect } from 'react-redux';
 
 
-export default class Signup extends Component {
+
+class Signup extends Component {
     constructor(props) {
         super()
         this.state = {
@@ -74,11 +75,14 @@ export default class Signup extends Component {
         }).then((response) => response.json())
         .then(data => {
             //console.log(data.user.data.attributes.name)
-            if (data.user.data.attributes.name === this.state.name) {
+            this.props.dispatch({ type: 'LOGIN', payload: true })
+            console.log(this.globalState)
+            /*if (data.user.data.attributes.name === this.state.name) {
                 localStorage.setItem("token", data.jwt)
                 //history.push('/survey');
                 console.log("WIN")
-            }
+            }*/
+            
         })
         .catch((error) => {
             this.setState({
@@ -123,3 +127,11 @@ export default class Signup extends Component {
       )
   }  
 } 
+
+const MSP = (globalState) => {
+    //debugger
+    console.log('FROM CONNECT', globalState)
+    return globalState
+}
+
+export default connect(MSP)(Signup);

@@ -5,7 +5,12 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 
-function App() {
+
+function App(props) {
+
+  console.log(props)
+  console.log("hi")
+
   return (
     <div className="App">
       <Router>
