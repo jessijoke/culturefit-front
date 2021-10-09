@@ -12,12 +12,12 @@ function App(props) {
 
   return (
     <div className="App">
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Switch>
         <>
-        <Route exact path={process.env.PUBLIC_URL + "/"} component={Home} />
-          <Route exact path={process.env.PUBLIC_URL + "/signup"} component={Signup} />
-          <Route exact path={process.env.PUBLIC_URL + "/login"} component={Login} />
+        <Route exact path={"/culturefit-front/"} component={Home} />
+          <Route exact path={"/culturefit-front//signup"} component={Signup} />
+          <Route exact path={"/culturefit-front//login"} component={Login} />
         </>
         </Switch>
       </Router>
