@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navigation from '../components/Navigation';
 import { connect } from 'react-redux';
+import './signupLogin.css';
 
 
 
@@ -22,6 +23,7 @@ class Signup extends Component {
         this.setState({
             [event.target.name]: event.target.value}, () => {
             this.passwordsMatchState()
+            console.log(this.state)
         }
         )
     }
@@ -75,13 +77,15 @@ class Signup extends Component {
         }).then((response) => response.json())
         .then(data => {
             //console.log(data.user.data.attributes.name)
-            this.props.dispatch({ type: 'LOGIN', payload: true })
-            console.log(this.globalState)
-            /*if (data.user.data.attributes.name === this.state.name) {
+            //console.log(this.globalState)
+            if (data.user.data.attributes.name === this.state.name) {
+                let isLoggedIn = true;
+                let userName = this.state.name;
+                this.props.dispatch({ type: 'LOGIN', loggedIn: true, un: {userName} })
                 localStorage.setItem("token", data.jwt)
-                //history.push('/survey');
-                console.log("WIN")
-            }*/
+                history.push('/#/');
+                //console.log("WIN")
+            }
             
         })
         .catch((error) => {
@@ -102,7 +106,7 @@ class Signup extends Component {
                 <div className="signupLoginForm">
                     <form>
                         <div className="signupLoginLavel">Username*</div>
-                        <input type="text" className="textInput" name="name" onChange={this.handleChange}label="username" /><br />
+                        <input type="text" className="textInput" name="name" onChange={this.handleChange} label="username" /><br />
 
                         <div className="signupLoginLavel">Email*</div>
                         <input type="text" className="textInput" name="email" onChange={this.handleChange} label="email" /><br />

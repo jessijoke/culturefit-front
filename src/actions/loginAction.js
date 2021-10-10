@@ -1,6 +1,7 @@
-export const loginAction = () => dispatch => {
+export const loginAction = (username) => dispatch => {
     dispatch({
         type: 'LOGIN',
-        payload: true
+        loggedIn: true, 
+        un: username
     })
 }

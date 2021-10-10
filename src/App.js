@@ -7,8 +7,8 @@ import Login from './pages/Login';
 
 function App(props) {
 
-  console.log(props)
-  console.log("hi")
+  //console.log(props)
+  //console.log("app testing " + this.globalState)
 
   return (
     <div className="App">
@@ -25,4 +25,10 @@ function App(props) {
   );
 }
 
-export default connect()(App);
+const MSP = (globalState) => {
+  //debugger
+  console.log('FROM APP', globalState)
+  return globalState
+}
+
+export default connect(MSP)(App);

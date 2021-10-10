@@ -1,37 +1,43 @@
 import React, { Component } from 'react';
 import Navigation from '../components/Navigation';
 import './home.css'
+import { connect } from 'react-redux';
+import { HomeLoggedOut } from './HomeLoggedOut'
+import { HomeLoggedIn } from './HomeLoggedIn'
 
-export default class Home extends Component {
+class Home extends Component {
+
+
+  getState = () => {
+    console.log(this.globalState.loginReducer.loggedIn)
+    return this.globalState.loginReducer.loggedIn
+  }
+
   render() {
+    console.log("dis my props bitch" + this.props.loginReducer.loggedIn)
       return(
           <div>
-
             <Navigation />
+          
+            {
+              !this.props.loginReducer.loggedIn ?
+              <HomeLoggedOut />
+              :
+              <HomeLoggedIn />
 
-            <div className="gridContainer">
-
-              <div className="firstSection">
-                <h1>Find the perfect fit for your company’s culture.</h1>
-              </div>
-
-              <div className="secondSection">
-                
-              </div>
-              <div className="secondSectionOverlap">
-                DUN DUN DUNNNNN
-              </div>
-
-              <div className="thirdSection">
-                <h2>Blah blah corporate bullshit blah blah.</h2>
-              </div>
-
-              <div className="fourthSection">
-                footer
-              </div>
-            </div>
+            }
+            
+            
 
           </div>
       )
   }  
 } 
+
+const MSP = (globalState) => {
+  //debugger
+  console.log('FROM Home', globalState)
+  return globalState
+}
+
+export default connect(MSP)(Home);
