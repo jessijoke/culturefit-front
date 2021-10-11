@@ -27,14 +27,25 @@ class Navigation extends Component {
         return(
             
             <nav className="navBarFlexContainer">
-                <a href="/#/"><div className="navLogo"><span className="cultureLogo">culture</span><span className="fitLogo">Fit</span></div></a>
+                <a href="/"><div className="navLogo"><span className="cultureLogo">culture</span><span className="fitLogo">Fit</span></div></a>
                 <div className="navBarInnerContainer">
-                
+
+                {
+                    !this.props.loginReducer.loggedIn ?
                     <div className="navElement">
+                        
                         <a href="/#/signup">Sign up</a>
                         <span className="signupInDivider"> | </span>
                         <a href="/#/signin">Sign in</a>
                     </div>
+                    :
+                    <div className="navElement">
+                        <span className="signupInDivider">Welcome { this.props.loginReducer.name.userName } </span>
+                        <span className="signupInDivider"> | </span>
+                        <a href="/#/signin">Sign out</a>
+                    </div>
+      
+                  }
                 
                 </div>
             </nav>

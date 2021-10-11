@@ -83,7 +83,7 @@ class Signup extends Component {
                 let userName = this.state.name;
                 this.props.dispatch({ type: 'LOGIN', loggedIn: true, un: {userName} })
                 localStorage.setItem("token", data.jwt)
-                history.push('/#/');
+                history.push('/');
                 //console.log("WIN")
             }
             

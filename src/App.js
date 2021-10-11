@@ -7,15 +7,12 @@ import Login from './pages/Login';
 
 function App(props) {
 
-  //console.log(props)
-  //console.log("app testing " + this.globalState)
-
   return (
     <div className="App">
       <Router basename={process.env.PUBLIC_URL}>
         <Switch>
         <>
-        <Route exact path={"/"} component={Home} />
+          <Route exact path={"/"} component={Home} />
           <Route exact path={"/signup"} component={Signup} />
           <Route exact path={"/signin"} component={Login} />
         </>
