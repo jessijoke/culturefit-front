@@ -1,6 +1,6 @@
-export const loginAction = (username) => dispatch => {
+export const loginAction = (status, username) => dispatch => {
     dispatch({
-        type: 'LOGIN',
+        type: status,
         loggedIn: true, 
         un: username
     })

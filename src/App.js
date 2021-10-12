@@ -4,12 +4,13 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 
+//<Router basename={process.env.PUBLIC_URL}> for deployment
 
 function App(props) {
 
   return (
     <div className="App">
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Switch>
         <>
           <Route exact path={"/"} component={Home} />

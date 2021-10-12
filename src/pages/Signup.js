@@ -3,8 +3,6 @@ import Navigation from '../components/Navigation';
 import { connect } from 'react-redux';
 import './signupLogin.css';
 
-
-
 class Signup extends Component {
     constructor(props) {
         super()
@@ -76,15 +74,11 @@ class Signup extends Component {
             })
         }).then((response) => response.json())
         .then(data => {
-            //console.log(data.user.data.attributes.name)
-            //console.log(this.globalState)
             if (data.user.data.attributes.name === this.state.name) {
-                let isLoggedIn = true;
                 let userName = this.state.name;
                 this.props.dispatch({ type: 'LOGIN', loggedIn: true, un: {userName} })
                 localStorage.setItem("token", data.jwt)
                 history.push('/');
-                //console.log("WIN")
             }
             
         })

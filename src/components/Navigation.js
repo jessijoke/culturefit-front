@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './navigation.css'
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Navigation extends Component {
     constructor(props) {
@@ -14,7 +17,7 @@ class Navigation extends Component {
     }
 
     loggedInNavbar = () => {
-        if (this.globalState != null && this.globalState != undefined) {
+        if (this.globalState !== null && this.globalState !== undefined) {
             this.setState({
                 isLoggedIn: true,
                 name: this.globalState.name
@@ -22,27 +25,33 @@ class Navigation extends Component {
             console.log(this.globalState)
         } 
     }
+
+    logout = () => {
+        const { history } = this.props;
+        localStorage. clear();
+        this.props.dispatch({ type: 'LOGOUT', loggedIn: false })
+    }
     
     render() {
         return(
             
             <nav className="navBarFlexContainer">
-                <a href="/"><div className="navLogo"><span className="cultureLogo">culture</span><span className="fitLogo">Fit</span></div></a>
+                <Link to="/"><div className="navLogo"><span className="cultureLogo">culture</span><span className="fitLogo">Fit</span></div></Link>
                 <div className="navBarInnerContainer">
 
                 {
                     !this.props.loginReducer.loggedIn ?
                     <div className="navElement">
                         
-                        <a href="/#/signup">Sign up</a>
+                        <Link to="/signup">Sign up</Link>
                         <span className="signupInDivider"> | </span>
-                        <a href="/#/signin">Sign in</a>
+                        <Link to="/signin">Sign in</Link>
                     </div>
                     :
                     <div className="navElement">
                         <span className="signupInDivider">Welcome { this.props.loginReducer.name.userName } </span>
                         <span className="signupInDivider"> | </span>
-                        <a href="/#/signin">Sign out</a>
+                        <Link onClick={this.logout} to="/">Sign out</Link>
                     </div>
       
                   }

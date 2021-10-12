@@ -5,6 +5,11 @@ export default (state = { loggedIn: false, name: "" }, action) => {
                 loggedIn: action.loggedIn,
                 name: action.un
             }
+        case 'LOGOUT':
+                return {
+                    loggedIn: action.loggedIn,
+                    name: action.un
+                }
         default:
             return state;
     }
