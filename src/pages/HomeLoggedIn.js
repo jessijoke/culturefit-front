@@ -13,7 +13,7 @@ export const HomeLoggedIn = () => {
         </div>
 
         <div className="thirdSection">
-        <h2>Blah blah corporate bullshit blah blah.</h2>
+        <h2>This is very real legit seriousness.</h2>
         </div>
 
         <div className="fourthSection">

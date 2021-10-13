@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Navigation from '../components/Navigation';
 import './signupLogin.css';
 import { connect } from 'react-redux';
+import { loginAction } from '../actions/loginAction'
+
 
 
 class Login extends Component {
@@ -51,8 +53,11 @@ submitToServer = () => {
     }).then((response) => response.json())
     .then(data => {
         if (data.user.data.attributes.name === this.state.name) {
-            let userName = this.state.name;
-            this.props.dispatch({ type: 'LOGIN', loggedIn: true, un: {userName} })
+            //let userName = this.state.name;
+            //this.props.dispatch(loginAction(true, this.state.name))
+            //this.props.dispatch({ type: 'LOGIN', loggedIn: true, un: {userName} })
+            //this.props.auth(loginAction(this.state.name))
+            this.props.auth(this.state.name)
             localStorage.setItem("token", data.jwt)
             localStorage.setItem("user", this.state.name)
             history.push('/');
@@ -99,4 +104,10 @@ const MSP = (globalState) => {
   return globalState
 }
 
-export default connect(MSP)(Login);
+const MDP = (dispatch) => {
+  return {
+      auth: (name) => dispatch(loginAction(name))
+  }
+}
+
+export default connect(MSP, MDP)(Login);

@@ -1,12 +1,12 @@
 export default (state = { loggedIn: false, name: "" }, action) => {
     switch (action.type) {
         case 'LOGIN':
-            return {
+            return {...state,
                 loggedIn: action.loggedIn,
                 name: action.un
             }
         case 'LOGOUT':
-                return {
+                return {...state,
                     loggedIn: action.loggedIn,
                     name: action.un
                 }

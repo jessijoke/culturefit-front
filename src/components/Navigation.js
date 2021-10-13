@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './navigation.css'
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { logoutAction } from '../actions/loginAction'
 
 class Navigation extends Component {
     constructor(props) {
@@ -29,7 +28,7 @@ class Navigation extends Component {
     logout = () => {
         const { history } = this.props;
         localStorage. clear();
-        this.props.dispatch({ type: 'LOGOUT', loggedIn: false })
+        this.props.auth(this.state.name)
     }
     
     render() {
@@ -69,7 +68,13 @@ const MSP = (globalState) => {
     return globalState
 }
 
-export default connect(MSP)(Navigation);
+const MDP = (dispatch) => {
+    return {
+        auth: (name) => dispatch(logoutAction(name))
+    }
+}
+
+export default connect(MSP, MDP)(Navigation);
 
 /*
 //In order to test on github pages links must look like /culturefit-front/#/

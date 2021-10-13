@@ -13,7 +13,7 @@ export const HomeLoggedOut = () => {
         </div>
 
         <div className="thirdSection">
-        <h2>Blah blah corporate bullshit blah blah.</h2>
+        <h2>Look at how important this section looks.</h2>
         </div>
 
         <div className="fourthSection">

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Navigation from '../components/Navigation';
 import { connect } from 'react-redux';
 import './signupLogin.css';
+import { loginAction } from '../actions/loginAction'
+
 
 class Signup extends Component {
     constructor(props) {
@@ -76,7 +78,8 @@ class Signup extends Component {
         .then(data => {
             if (data.user.data.attributes.name === this.state.name) {
                 let userName = this.state.name;
-                this.props.dispatch({ type: 'LOGIN', loggedIn: true, un: {userName} })
+                //this.props.dispatch({ type: 'LOGIN', loggedIn: true, un: {userName} })
+                this.props.auth(this.state.name)
                 localStorage.setItem("token", data.jwt)
                 history.push('/');
             }
