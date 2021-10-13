@@ -5,6 +5,7 @@ import './signupLogin.css';
 import { loginAction } from '../actions/loginAction'
 
 
+
 class Signup extends Component {
     constructor(props) {
         super()
@@ -142,4 +143,10 @@ const MSP = (globalState) => {
     return globalState
 }
 
-export default connect(MSP)(Signup);
+const MDP = (dispatch) => {
+    return {
+        auth: (name) => dispatch(loginAction(name))
+    }
+  }
+
+export default connect(MSP, MDP)(Signup);
