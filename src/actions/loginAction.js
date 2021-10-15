@@ -1,15 +1,17 @@
-export const loginAction = (username) => dispatch => {
+export const loginAction = (username, usertype) => dispatch => {
     dispatch({
         type: "LOGIN",
         loggedIn: true, 
-        un: username
+        un: username,
+        ut: usertype
     })
 }
 
-export const logoutAction = (username) => dispatch => {
+export const logoutAction = () => dispatch => {
     dispatch({
         type: "LOGOUT",
         loggedIn: false, 
-        un: username
+        un: "",
+        ut: ""
     })
 }

@@ -32,7 +32,7 @@ class Signup extends Component {
     passwordsMatchState = () => {
         console.log(this.state.password !== this.state.confirmpass)
         if (this.passwordsMatch()) {
-            this.setState({ signupError: <div style={{color: "red"}}>*Passwords must match to continue</div> })
+            this.setState({ signupError: <div style={{color: "red", marginBottom: "15px"}}>*Passwords must match to continue</div> })
         } else {
             this.setState({ signupError: null })
         }
@@ -57,7 +57,7 @@ class Signup extends Component {
                 console.log("valid entries")
                 this.submitToServer()
         } else {
-            this.setState({ signupError: <div style={{color: "red"}}>*All fields must be filled out, and passwords must match</div> })
+            this.setState({ signupError: <div style={{color: "red", marginBottom: "15px"}}>*All fields must be filled out, and passwords must match</div> })
         }
     }
 
@@ -78,17 +78,17 @@ class Signup extends Component {
         }).then((response) => response.json())
         .then(data => {
             if (data.user.data.attributes.name === this.state.name) {
-                let userName = this.state.name;
-                //this.props.dispatch({ type: 'LOGIN', loggedIn: true, un: {userName} })
-                this.props.auth(this.state.name)
+                this.props.auth(this.state.name, this.state.user_type)
                 localStorage.setItem("token", data.jwt)
+                localStorage.setItem("user", this.state.name)
+                console.log(this.props.loginReducer)
                 history.push('/');
             }
             
         })
         .catch((error) => {
             this.setState({
-                signupError: <div style={{color: "red"}}>Something went wrong</div>
+                signupError: <div style={{color: "red", marginBottom: "15px"}}>Something went wrong</div>
             })
             console.error('Error:', error);
           });
@@ -145,7 +145,7 @@ const MSP = (globalState) => {
 
 const MDP = (dispatch) => {
     return {
-        auth: (name) => dispatch(loginAction(name))
+        auth: (name, usertype) => dispatch(loginAction(name, usertype))
     }
   }
 

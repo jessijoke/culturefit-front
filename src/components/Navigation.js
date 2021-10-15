@@ -26,9 +26,8 @@ class Navigation extends Component {
     }
 
     logout = () => {
-        const { history } = this.props;
-        localStorage. clear();
-        this.props.auth(this.state.name)
+        localStorage.clear();
+        this.props.auth()
     }
     
     render() {
@@ -48,7 +47,7 @@ class Navigation extends Component {
                     </div>
                     :
                     <div className="navElement">
-                        <span className="signupInDivider">Welcome { this.props.loginReducer.name.userName } </span>
+                        <span className="signupInDivider">Welcome { this.props.loginReducer.name } </span>
                         <span className="signupInDivider"> | </span>
                         <Link onClick={this.logout} to="/">Sign out</Link>
                     </div>
@@ -70,7 +69,7 @@ const MSP = (globalState) => {
 
 const MDP = (dispatch) => {
     return {
-        auth: (name) => dispatch(logoutAction(name))
+        auth: () => dispatch(logoutAction())
     }
 }
 

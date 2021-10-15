@@ -1,23 +1,21 @@
-export const HomeLoggedIn = () => {
-    return (<div className="gridContainer">
+import React, { Component } from "react";
 
-        <div className="firstSection">
-        <h1>Find the perfect fit for your company’s culture.</h1>
-        </div>
-
-        <div className="secondSection">
-        
-        </div>
-        <div className="secondSectionOverlap">
-        Pretty much the same thing but now you are logged in
-        </div>
-
-        <div className="thirdSection">
-        <h2>This is very real legit seriousness.</h2>
-        </div>
-
-        <div className="fourthSection">
-        footer
-        </div>
-    </div>)
+class HomeLoggedIn extends Component {
+  render() {
+    return (
+      <>
+        {this.props.userType === "job_seeker" ? (
+          <div className="secondSectionOverlap">
+            Pretty much the same thing but now you are logged in as a Job Seeker
+          </div>
+        ) : (
+          <div className="secondSectionOverlap">
+            Pretty much the same thing but now you are logged in as a Company
+          </div>
+        )}
+      </>
+    );
+  }
 }
+
+export default HomeLoggedIn;
