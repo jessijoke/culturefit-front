@@ -1,17 +1,15 @@
 import React, { Component } from "react";
+import CompanyHome from './signedin/CompanyHome';
+import JobSeekersHome from './signedin/JobSeekersHome'
 
 class HomeLoggedIn extends Component {
   render() {
     return (
       <>
         {this.props.userType === "job_seeker" ? (
-          <div className="secondSectionOverlap">
-            Pretty much the same thing but now you are logged in as a Job Seeker
-          </div>
+            <JobSeekersHome />
         ) : (
-          <div className="secondSectionOverlap">
-            Pretty much the same thing but now you are logged in as a Company
-          </div>
+          <CompanyHome />
         )}
       </>
     );
