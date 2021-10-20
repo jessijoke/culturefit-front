@@ -77,7 +77,8 @@ class Signup extends Component {
             })
         }).then((response) => response.json())
         .then(data => {
-            if (data.user.data.attributes.name === this.state.name) {
+            console.log(data)
+            if (data.name === this.state.name) {
                 this.props.auth(this.state.name, this.state.user_type)
                 localStorage.setItem("token", data.jwt)
                 localStorage.setItem("user", this.state.name)

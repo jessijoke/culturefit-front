@@ -58,8 +58,9 @@ class Login extends Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data.user.data.attributes.name === this.state.name) {
-          this.props.auth(this.state.name, data.user.data.attributes.user_type);
+        console.log(data)
+        if (data.user.name === this.state.name) {
+          this.props.auth(this.state.name, data.user.user_type);
           localStorage.setItem("token", data.jwt);
           localStorage.setItem("user", this.state.name);
           console.log(this.props.loginReducer);
