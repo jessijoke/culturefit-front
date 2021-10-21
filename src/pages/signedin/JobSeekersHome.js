@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import UserQuiz from './UserQuiz'
+import './userquiz.css';
 
 
 class JobSeekersHome extends Component {
@@ -62,16 +63,15 @@ class JobSeekersHome extends Component {
           })
 
         return(
-            <div className="">
-                Pretty much the same thing but now you are logged in as a Job Seeker
-                <br />
+            <div className="quizContainer">
+                
                 {this.state.page === "quizzes" ? 
-                allQuizzes 
+                <div>
+                {allQuizzes}
+                </div>
+                 
                 :
-                <>
-                    <button onClick={this.backButton()}>back</button>
-                    <UserQuiz currentQuiz={this.state.quizId}/>
-                </>
+                <UserQuiz backBtn={this.backButton} currentQuiz={this.state.quizId}/>
             }
             </div>
         )

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import './userquiz.css';
 
 class UserQuiz extends Component {
     constructor(props) {
@@ -35,11 +36,16 @@ class UserQuiz extends Component {
     render() {
         const quizData = Object.entries(this.state.quizData).map(([k,value])=>{
             return (
-                <div>
-                    <div>{value.question_name.question}</div>
+                <div className="questionSet">
+                    <div>
+                    {value.question_name.question}
+                    </div>
                     {
                     Object.entries(value.answers).map(([answerKey, answerValue]) => {
-                        return <div>{answerValue.answer_name.answer}</div>
+                        return <div className="answers">
+                        <input type="radio" id={answerValue.answer_name.answer_id} name={value.question_id} value={answerValue.answer_name.answer_id} key={answerValue.answer_name.answer_id}/>
+                        {answerValue.answer_name.answer}
+                        </div>
                     })}
                 </div>
             );
@@ -48,8 +54,18 @@ class UserQuiz extends Component {
 
         return(
             <div>
-                <div>{this.state.quizName.toString()}</div>
-                {quizData}
+                <div className="quizContainer">
+                    <div className="innerQuiz">
+                        <button onClick={this.props.backBtn()}>Go Back</button>
+                        <div>
+                            <h2>{this.state.quizName.toString()}</h2>
+                        </div>
+                        {quizData}
+                        <button className="submit">Submit</button>
+                    </div>
+                    
+                </div>
+                
             </div>
         )
     }
