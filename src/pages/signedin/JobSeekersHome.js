@@ -34,8 +34,8 @@ class JobSeekersHome extends Component {
           });
     }
 
-    handleClick = (quizID) => (event) => {
-        event.preventDefault();
+    handleClick = (quizID) => (e) => {
+        e.preventDefault();
         //console.log(this.state)
         this.setState({
             quizId: quizID.id,
@@ -43,12 +43,20 @@ class JobSeekersHome extends Component {
         })
     }
 
+    backButton = () => (event) => {
+        //event.preventDefault();
+        console.log("change")
+        this.setState({
+            page: "quizzes"
+        })
+    }
+
     render() {
         const allQuizzes = Object.entries(this.state.quizzes).map(([id,quizName])=>{
             return (
                 <div>
-                <a href="" onClick={this.handleClick({id})}>{quizName.toString()}</a>
-                {id} : {quizName.toString()}
+                <a href="/" onClick={this.handleClick({id})}>{quizName.toString()}</a>
+                
                 </div>
             );
           })
@@ -60,7 +68,10 @@ class JobSeekersHome extends Component {
                 {this.state.page === "quizzes" ? 
                 allQuizzes 
                 :
-                <UserQuiz currentQuiz={this.state.quizId}/>
+                <>
+                    <button onClick={this.backButton()}>back</button>
+                    <UserQuiz currentQuiz={this.state.quizId}/>
+                </>
             }
             </div>
         )

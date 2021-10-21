@@ -48,8 +48,8 @@ class UserQuiz extends Component {
 
         return(
             <div>
-            <div>{this.state.quizName.toString()}</div>
-            {quizData}
+                <div>{this.state.quizName.toString()}</div>
+                {quizData}
             </div>
         )
     }
