@@ -7,7 +7,8 @@ class UserQuiz extends Component {
         super();
         this.state = {
             quizName: "",
-            quizData: {}
+            quizData: {},
+            quizAttributes: {}
         };
     }
 
@@ -43,12 +44,33 @@ class UserQuiz extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         //console.log(event.target);
+        let userScore = {}
         Array.prototype.forEach.call(event.target.elements, (element) => {
-            this.isElChecked(element);
+            if (element.checked) {
+                let valueName = element.value
+                if (valueName in userScore) {
+                    userScore[valueName] = userScore[valueName] + 1
+                } else {
+                    userScore[valueName] = 1
+                }
+            }
           })
-          
+          this.setState({
+              quizAttributes: userScore
+          }, () => { console.log(this.state )})
+          console.log("TESTING")
+          /*
+          for (const [key, value] of Object.entries(userScore)) {
+            this.setState({
+                [key]: value
+            }, () => { console.log(this.state) })
+          }*/
+          //console.log(this.state)
+          //this.isElChecked(element);
     }
 
+
+    /*
     isElChecked = (element) => {
        if (element.checked) { this.findElement(element.value); }
     }
@@ -80,7 +102,7 @@ class UserQuiz extends Component {
             //console.log(element);
             console.log(this.state);
         })
-    }
+    }*/
 
     render() {
         const quizData = Object.entries(this.state.quizData).map(([k,value])=>{
