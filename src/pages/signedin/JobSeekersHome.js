@@ -55,19 +55,24 @@ class JobSeekersHome extends Component {
     render() {
         const allQuizzes = Object.entries(this.state.quizzes).map(([id,quizName])=>{
             return (
-                <div>
-                <a href="/" onClick={this.handleClick({id})}>{quizName.toString()}</a>
+                <div className="quizLinks">
+                
+                <a href="/" onClick={this.handleClick({id})}>
+                <div className="quizLink">
+                        {quizName.toString()}
+                    </div></a>
                 
                 </div>
             );
           })
 
         return(
-            <div className="quizContainer">
+            <div className="allQuizzes">
                 
                 {this.state.page === "quizzes" ? 
-                <div>
-                {allQuizzes}
+                <div className="quizNames">
+                    <div className="selectQuiz">Select a Quiz:</div>
+                    {allQuizzes}
                 </div>
                  
                 :
