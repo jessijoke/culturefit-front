@@ -45,7 +45,7 @@ class JobSeekersHome extends Component {
     }
 
     backButton = () => (event) => {
-        //event.preventDefault();
+        event.preventDefault();
         console.log("change")
         this.setState({
             page: "quizzes"
@@ -55,7 +55,7 @@ class JobSeekersHome extends Component {
     render() {
         const allQuizzes = Object.entries(this.state.quizzes).map(([id,quizName])=>{
             return (
-                <div className="quizLinks">
+                <div className="quizLinks" key={id}>
                 
                 <a href="/" onClick={this.handleClick({id})}>
                 <div className="quizLink">

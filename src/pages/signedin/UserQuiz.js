@@ -33,17 +33,66 @@ class UserQuiz extends Component {
           });
     }
 
+    /*
+    addUserScore = (targetName, targetValue) => {
+        this.setState({
+            targetName: this.state.targetName += targetValue
+        })
+    }*/
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        //console.log(event.target);
+        Array.prototype.forEach.call(event.target.elements, (element) => {
+            this.isElChecked(element);
+          })
+          
+    }
+
+    isElChecked = (element) => {
+       if (element.checked) { this.findElement(element.value); }
+    }
+
+    findElement = (element) => {
+        if (element in this.state) {
+            this.addToElement(element)
+        } else {
+            this.createElement(element)
+        }
+    }
+
+    createElement = (element) => {
+        this.setState({
+            [element]: 0
+        }, () => { 
+            
+            console.log("It did not find the key")
+            //console.log(element);
+            console.log(this.state)
+        })
+    }
+
+    addToElement = (element) => {
+        this.setState({
+            [element]: this.state[element] + 1
+        }, () => { 
+            console.log("It found the key")
+            //console.log(element);
+            console.log(this.state);
+        })
+    }
+
     render() {
         const quizData = Object.entries(this.state.quizData).map(([k,value])=>{
             return (
-                <div className="questionSet">
+                <div className="questionSet" key={value.question_name.question_id}>
                     <div>
                     {value.question_name.question}
                     </div>
                     {
                     Object.entries(value.answers).map(([answerKey, answerValue]) => {
                         return <div className="answers">
-                        <input type="radio" id={answerValue.answer_name.answer_id} name={value.question_id} value={answerValue.answer_name.answer_id} key={answerValue.answer_name.answer_id}/>
+                        <input type="radio" id={answerValue.answer_name.answer} name={value.question_id} value={answerValue.answer_attribute.answer_attribute} key={answerValue.answer_name.answer_id}/>
                         {answerValue.answer_name.answer}
                         </div>
                     })}
@@ -60,8 +109,10 @@ class UserQuiz extends Component {
                         <div>
                             <h2>{this.state.quizName.toString()}</h2>
                         </div>
+                        <form onSubmit={this.handleSubmit}>
                         {quizData}
                         <button className="submit">Submit</button>
+                        </form>
                     </div>
                     
                 </div>

@@ -1,13 +1,9 @@
 .subnav {
     height: 50px;
     width: 100%;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 13px;
-    letter-spacing: 2px;
     background-color: #24385a;
     display: flex;
+    color: white;
     justify-content: center;
 }
 
@@ -18,4 +14,12 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    a {
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Fira Sans', sans-serif;
+        font-size: 13px;
+        letter-spacing: 2px;
+        text-decoration: none;
+    }
 }
