@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SubNav from './components/SubNav'
+import { connect } from "react-redux";
 import './company.css'
 
 class CompanyHome extends Component {
@@ -7,6 +8,8 @@ class CompanyHome extends Component {
         super();
         this.state = {
             currentView: "createQuiz",
+            username: props.loginReducer.name,
+            quizTitle: "",
             questions: [
                 {
                     question: "",
@@ -99,10 +102,49 @@ class CompanyHome extends Component {
         })
     }
 
+    titleHandleChange = () => (event) => {
+        this.setState({
+            quizTitle: event.target.value
+        }, () => {
+            console.log(this.state)
+        })
+    }
+
+    handleSubmit = () => (event) => {
+        event.preventDefault();
+        console.log("Click")
+        return fetch('http://127.0.0.1:3001/quizzes', {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: this.state.username,
+                quizTitle: this.state.quizTitle,
+                quiz: "test",
+                questions: this.state.quizTitle
+            })
+        }).then((response) => response.json())
+        .then(data => {
+            console.log(data)
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+          });
+    }
+
     render() {
         const quizData = this.state.questions.map((quest, index) => {
             return (
                 <div key={index}>
+                    <div>
+                        <div>
+                            <label>Quiz Title:</label>
+                        </div>
+                        <div>
+                            <input onChange={this.titleHandleChange()} placeholder="example: Personality Quiz"/>
+                        </div>
+                    </div>
                     <div>
                         <label>Question:</label>
                     </div>
@@ -149,7 +191,7 @@ class CompanyHome extends Component {
                             {quizData}
                             <button className="addBtn"  onClick={this.addQuestionBtn()}>Add Question</button>
                             </div>
-                            <button className="submitBtn">Submit Quiz</button> 
+                            <button onClick={this.handleSubmit()} className="submitBtn">Submit Quiz</button> 
                         </div>
                     </div>
                     :
@@ -160,4 +202,16 @@ class CompanyHome extends Component {
     }
 }
 
-export default CompanyHome;
+const MSP = (globalState) => {
+    //debugger
+    console.log('FROM CONNECT', globalState)
+    return globalState
+}
+
+const MDP = (dispatch) => {
+    return {
+        //auth: (name, usertype) => dispatch(loginAction(name, usertype))
+    }
+  }
+
+export default connect(MSP, MDP)(CompanyHome);
