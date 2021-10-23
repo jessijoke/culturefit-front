@@ -108,12 +108,12 @@ class UserQuiz extends Component {
         const quizData = Object.entries(this.state.quizData).map(([k,value])=>{
             return (
                 <div className="questionSet" key={value.question_name.question_id}>
-                    <div>
+                    <div key={value.question_name.question_id}>
                     {value.question_name.question}
                     </div>
                     {
                     Object.entries(value.answers).map(([answerKey, answerValue]) => {
-                        return <div className="answers">
+                        return <div className="answers" key={answerKey}>
                         <input type="radio" id={answerValue.answer_name.answer} name={value.question_id} value={answerValue.answer_attribute.answer_attribute} key={answerValue.answer_name.answer_id}/>
                         {answerValue.answer_name.answer}
                         </div>

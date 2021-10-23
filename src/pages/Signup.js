@@ -94,7 +94,6 @@ class Signup extends Component {
             console.error('Error:', error);
           });
     }
-
     
   render() {
       return(
