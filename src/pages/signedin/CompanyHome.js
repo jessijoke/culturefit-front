@@ -93,7 +93,18 @@ class CompanyHome extends Component {
 
     answerHandleChange = (qIndex, aIndex) => (event) => {
         let questions = [...this.state.questions];
-        questions[qIndex].answers[aIndex] = event.target.value;
+        questions[qIndex].answers[aIndex].answer = event.target.value;
+        //console.log(questions)
+        this.setState({
+            questions
+        }, () => { 
+            console.log(this.state);
+        })
+    }
+
+    attributeHandleChange = (qIndex, aIndex) => (event) => {
+        let questions = [...this.state.questions];
+        questions[qIndex].answers[aIndex].attribute = event.target.value;
         //console.log(questions)
         this.setState({
             questions
@@ -111,6 +122,12 @@ class CompanyHome extends Component {
     }
 
     handleSubmit = () => (event) => {
+        let submitToServer = {
+            username: this.state.username,
+            quizTitle: this.state.quizTitle,
+            quiz: "test",
+            questions: this.state.questions
+        }
         event.preventDefault();
         console.log("Click")
         return fetch('http://127.0.0.1:3001/quizzes', {
@@ -118,12 +135,7 @@ class CompanyHome extends Component {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                username: this.state.username,
-                quizTitle: this.state.quizTitle,
-                quiz: "test",
-                questions: this.state.quizTitle
-            })
+            body: JSON.stringify(submitToServer)
         }).then((response) => response.json())
         .then(data => {
             console.log(data)
@@ -137,14 +149,6 @@ class CompanyHome extends Component {
         const quizData = this.state.questions.map((quest, index) => {
             return (
                 <div key={index}>
-                    <div>
-                        <div>
-                            <label>Quiz Title:</label>
-                        </div>
-                        <div>
-                            <input onChange={this.titleHandleChange()} placeholder="example: Personality Quiz"/>
-                        </div>
-                    </div>
                     <div>
                         <label>Question:</label>
                     </div>
@@ -167,7 +171,7 @@ class CompanyHome extends Component {
                                             <label>Answer Attribute:</label>
                                         </div>
                                         <div>
-                                            <input placeholder="example: 'Outgoing'"/>
+                                            <input onChange={this.attributeHandleChange(index, aindex)} placeholder="example: 'Outgoing'"/>
                                         </div>
                                     </div>
                                 </div>
@@ -188,6 +192,14 @@ class CompanyHome extends Component {
                         <div className="createQuizInner">
                             <h2>Create Quiz</h2>
                             <div>
+                            <div>
+                                <div>
+                                    <label>Quiz Title:</label>
+                                </div>
+                                <div>
+                                    <input onChange={this.titleHandleChange()} placeholder="example: Personality Quiz"/>
+                                </div>
+                            </div>
                             {quizData}
                             <button className="addBtn"  onClick={this.addQuestionBtn()}>Add Question</button>
                             </div>
