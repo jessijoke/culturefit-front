@@ -82,6 +82,7 @@ class Signup extends Component {
                 this.props.auth(this.state.name, this.state.user_type)
                 localStorage.setItem("token", data.jwt)
                 localStorage.setItem("user", this.state.name)
+                localStorage.setItem("userType", this.state.user_type)
                 console.log(this.props.loginReducer)
                 history.push('/');
             }

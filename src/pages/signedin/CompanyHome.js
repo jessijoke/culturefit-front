@@ -122,6 +122,7 @@ class CompanyHome extends Component {
     }
 
     handleSubmit = () => (event) => {
+        const { history } = this.props;
         let submitToServer = {
             username: this.state.username,
             quizTitle: this.state.quizTitle,
@@ -139,10 +140,36 @@ class CompanyHome extends Component {
         }).then((response) => response.json())
         .then(data => {
             console.log(data)
+            this.clearForm()
+            history.push('/');
         })
         .catch((error) => {
             console.error('Error:', error);
           });
+    }
+
+    clearForm = () => (event) => {
+        this.setState({
+            username: this.props.loginReducer.name,
+            quizTitle: "",
+            questions: [
+                {
+                    question: "",
+                    answers: [
+                        {
+                            answer: "",
+                            attribute: ""
+                        },
+                        {
+                            answer: "",
+                            attribute: ""
+                        }
+                    ]
+                }
+            ]
+        }, () => {
+            console.log(this.state)
+        })
     }
 
     render() {

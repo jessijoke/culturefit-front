@@ -8,7 +8,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const store = configureStore()
-//console.log("wanna work " + store)
+const token = localStorage.getItem('token');
+if (token) {
+  store.dispatch({ type: "LOGIN",
+                  loggedIn: true, 
+                  un: localStorage.getItem('user'),
+                  ut: localStorage.getItem('userType') });
+}
 
 ReactDOM.render(
   <Provider store={store}>

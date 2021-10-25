@@ -34,13 +34,6 @@ class UserQuiz extends Component {
           });
     }
 
-    /*
-    addUserScore = (targetName, targetValue) => {
-        this.setState({
-            targetName: this.state.targetName += targetValue
-        })
-    }*/
-
     handleSubmit = (event) => {
         event.preventDefault();
         //console.log(event.target);
@@ -59,50 +52,8 @@ class UserQuiz extends Component {
               quizAttributes: userScore
           }, () => { console.log(this.state )})
           console.log("TESTING")
-          /*
-          for (const [key, value] of Object.entries(userScore)) {
-            this.setState({
-                [key]: value
-            }, () => { console.log(this.state) })
-          }*/
-          //console.log(this.state)
-          //this.isElChecked(element);
+          
     }
-
-
-    /*
-    isElChecked = (element) => {
-       if (element.checked) { this.findElement(element.value); }
-    }
-
-    findElement = (element) => {
-        if (element in this.state) {
-            this.addToElement(element)
-        } else {
-            this.createElement(element)
-        }
-    }
-
-    createElement = (element) => {
-        this.setState({
-            [element]: 0
-        }, () => { 
-            
-            console.log("It did not find the key")
-            //console.log(element);
-            console.log(this.state)
-        })
-    }
-
-    addToElement = (element) => {
-        this.setState({
-            [element]: this.state[element] + 1
-        }, () => { 
-            console.log("It found the key")
-            //console.log(element);
-            console.log(this.state);
-        })
-    }*/
 
     render() {
         const quizData = Object.entries(this.state.quizData).map(([k,value])=>{
