@@ -9,7 +9,8 @@ class UserQuiz extends Component {
             quizName: "",
             quizID: null,
             quizData: {},
-            quizAttributes: {}
+            quizAttributes: {},
+            quizComplete: false
         };
     }
 
@@ -73,11 +74,13 @@ class UserQuiz extends Component {
                     userscore: this.state.quizAttributes
                 })
             }).then((response) => {
-                //debugger
                 response.json()
             })
             .then(data => {
                 console.log(data)
+                this.setState({
+                    quizComplete: true
+                })
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -106,16 +109,25 @@ class UserQuiz extends Component {
         return(
             <div>
                 <div className="quizContainer">
-                    <div className="innerQuiz">
-                        <button onClick={this.props.backBtn()}>Go Back</button>
-                        <div>
-                            <h2>{this.state.quizName.toString()}</h2>
+                {
+                    !this.state.quizComplete ? 
+                        <div className="innerQuiz">
+                            <button onClick={this.props.backBtn()}>Go Back</button>
+                            <div>
+                                <h2>{this.state.quizName.toString()}</h2>
+                            </div>
+                            <form onSubmit={this.handleSubmit}>
+                            {quizData}
+                            <button className="submit">Submit</button>
+                            </form>
                         </div>
-                        <form onSubmit={this.handleSubmit}>
-                        {quizData}
-                        <button className="submit">Submit</button>
-                        </form>
+                    :
+                    <div className="innerQuiz">
+                        <h2>quiz complete</h2>
+                        <button onClick={this.props.backBtn()}>Go Back</button>
                     </div>
+                }
+                    
                     
                 </div>
                 
