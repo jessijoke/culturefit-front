@@ -7,6 +7,7 @@ class UserQuiz extends Component {
         super();
         this.state = {
             quizName: "",
+            quizID: null,
             quizData: {},
             quizAttributes: {}
         };
@@ -20,11 +21,13 @@ class UserQuiz extends Component {
             }
         }).then((response) => response.json())
         .then(data => {
-            //console.log(data) 
+            console.log(data) 
             
             this.setState({ 
                 quizName: data.custom_quiz_hash.name,
-                quizData: data.custom_quiz_hash.questions
+                quizData: data.custom_quiz_hash.questions,
+                quizID: data.custom_quiz_hash.quiz_id,
+                user_attribute: ""
                 //quizzes: quizzesTemp
             })  
             console.log(this.state.quizData)
@@ -36,23 +39,49 @@ class UserQuiz extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        //console.log(event.target);
-        let userScore = {}
+        let total = {}
+        let userScore = []
         Array.prototype.forEach.call(event.target.elements, (element) => {
             if (element.checked) {
                 let valueName = element.value
-                if (valueName in userScore) {
-                    userScore[valueName] = userScore[valueName] + 1
+                if (valueName in total) {
+                    total[valueName] = total[valueName] + 1
                 } else {
-                    userScore[valueName] = 1
+                    total[valueName] = 1
                 }
             }
           })
+          
+          for (let key in total) {
+              userScore.push({
+                  attr: key,
+                  score: total[key]
+              })
+          }
           this.setState({
               quizAttributes: userScore
           }, () => { console.log(this.state )})
-          console.log("TESTING")
           
+            return fetch('http://127.0.0.1:3001/user_attributes', {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: this.props.loginReducer.name,
+                    quizID: this.state.quizID,
+                    userscore: this.state.quizAttributes
+                })
+            }).then((response) => {
+                //debugger
+                response.json()
+            })
+            .then(data => {
+                console.log(data)
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
 
     render() {

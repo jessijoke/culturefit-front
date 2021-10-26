@@ -8,6 +8,8 @@ class CompanyHome extends Component {
         super();
         this.state = {
             currentView: "createQuiz",
+            formData: "",
+            quizSubmitted: false,
             username: props.loginReducer.name,
             quizTitle: "",
             questions: [
@@ -122,7 +124,7 @@ class CompanyHome extends Component {
     }
 
     handleSubmit = () => (event) => {
-        const { history } = this.props;
+        //const { history } = this.props;
         let submitToServer = {
             username: this.state.username,
             quizTitle: this.state.quizTitle,
@@ -137,38 +139,44 @@ class CompanyHome extends Component {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(submitToServer)
-        }).then((response) => response.json())
+        }).then((response) => {
+            this.setState({
+                username: this.props.loginReducer.name,
+                formData: <div style={{ color: "black", marginBottom: "15px", textAlign: "center" }}>Form has been submitted</div>,
+                quizSubmitted: true,
+                quizTitle: "",
+                questions: [
+                    {
+                        question: "",
+                        answers: [
+                            {
+                                answer: "",
+                                attribute: ""
+                            },
+                            {
+                                answer: "",
+                                attribute: ""
+                            }
+                        ]
+                    }
+                ]
+            }, () => {
+                console.log(this.state)
+            })
+            response.json()
+        })
         .then(data => {
             console.log(data)
-            this.clearForm()
-            history.push('/');
         })
         .catch((error) => {
             console.error('Error:', error);
           });
     }
 
-    clearForm = () => (event) => {
+    createNewQuiz = () => (event) => {
+        event.preventDefault()
         this.setState({
-            username: this.props.loginReducer.name,
-            quizTitle: "",
-            questions: [
-                {
-                    question: "",
-                    answers: [
-                        {
-                            answer: "",
-                            attribute: ""
-                        },
-                        {
-                            answer: "",
-                            attribute: ""
-                        }
-                    ]
-                }
-            ]
-        }, () => {
-            console.log(this.state)
+            quizSubmitted: false,
         })
     }
 
@@ -216,22 +224,33 @@ class CompanyHome extends Component {
                 {
                     this.state.currentView === "createQuiz" ? 
                     <div className="createQuizContainer">
-                        <div className="createQuizInner">
-                            <h2>Create Quiz</h2>
-                            <div>
-                            <div>
+                        {
+                            this.state.quizSubmitted === false ? 
+                            <div className="createQuizInner">
+                                <h2>Create Quiz</h2>
                                 <div>
-                                    <label>Quiz Title:</label>
+                                <div>
+                                    <div>
+                                        <label>Quiz Title:</label>
+                                    </div>
+                                    <div>
+                                        <input onChange={this.titleHandleChange()} placeholder="example: Personality Quiz"/>
+                                    </div>
                                 </div>
+                                {quizData}
+                                <button className="addBtn"  onClick={this.addQuestionBtn()}>Add Question</button>
+                                </div>
+                                <button onClick={this.handleSubmit()} className="submitBtn">Submit Quiz</button> 
+                            </div>
+                            :
+                            <div className="createQuizInner">
+                            {this.state.formData}
                                 <div>
-                                    <input onChange={this.titleHandleChange()} placeholder="example: Personality Quiz"/>
+                                <button className="addBtn" onClick={this.createNewQuiz()}>Create a new quiz</button>
                                 </div>
                             </div>
-                            {quizData}
-                            <button className="addBtn"  onClick={this.addQuestionBtn()}>Add Question</button>
-                            </div>
-                            <button onClick={this.handleSubmit()} className="submitBtn">Submit Quiz</button> 
-                        </div>
+                        }
+                        
                     </div>
                     :
                     <div>View Completed Quizzes</div>
