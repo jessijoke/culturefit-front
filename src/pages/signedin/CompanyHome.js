@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SubNav from './components/SubNav'
 import { connect } from "react-redux";
 import './company.css'
+import './userquiz.css';
 
 class CompanyHome extends Component {
     constructor(props) {
@@ -26,8 +27,30 @@ class CompanyHome extends Component {
                         }
                     ]
                 }
+            ],
+            uniqueQuizList: [
+
             ]
         };
+    }
+
+    componentDidMount() {
+        return fetch('http://127.0.0.1:3001/user_attributes/unique', {
+            method: "get",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then((response) => response.json())
+        .then(data => {
+            this.setState({
+                uniqueQuizList: data
+            }, () => {
+                console.log(this.state)
+            })
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+          });
     }
 
     createQuizBtn = () => (event) => {
@@ -218,6 +241,16 @@ class CompanyHome extends Component {
             )
         })
 
+        const uniqueQuizzes = this.state.uniqueQuizList.map((quiz) => { return (
+            <div className="quizLinks" key={quiz["id"]}>
+                <a href="/">
+                    <div className="quizLink">
+                        {quiz["quiz"]["custom_quiz_hash"]["name"].toString()}
+                    </div>
+                </a>
+            </div>
+        )})
+
         return(
             <div className="companyHome">
                 <SubNav cwBtn={this.createQuizBtn} vwqBtn={this.viewCompletedQuizzesBtn}/>
@@ -253,7 +286,15 @@ class CompanyHome extends Component {
                         
                     </div>
                     :
-                    <div>View Completed Quizzes</div>
+                    <div>
+                        <div className="allQuizzes">
+                
+                            <div className="quizNames">
+                                <div className="selectQuiz">Select a Quiz to View the Results:</div>
+                                {uniqueQuizzes}
+                            </div>
+                        </div>
+                    </div>
                 }
             </div>
         )

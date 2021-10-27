@@ -12,7 +12,7 @@ class Home extends Component {
   };
 
   render() {
-    console.log("dis my props bitch" + this.props.loginReducer.loggedIn);
+    console.log("my props" + this.props.loginReducer.loggedIn);
     return (
       <div>
         <Navigation />

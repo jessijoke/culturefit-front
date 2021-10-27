@@ -50,9 +50,9 @@ class UserQuiz extends Component {
                 } else {
                     total[valueName] = 1
                 }
+                console.log(total[valueName])
             }
           })
-          
           for (let key in total) {
               userScore.push({
                   attr: key,
@@ -61,8 +61,8 @@ class UserQuiz extends Component {
           }
           this.setState({
               quizAttributes: userScore
-          }, () => { console.log(this.state )})
-          
+          }, () => { console.log( this.state )})
+          console.log(this.state.quizAttributes)
             return fetch('http://127.0.0.1:3001/user_attributes', {
                 method: "post",
                 headers: {
@@ -71,7 +71,7 @@ class UserQuiz extends Component {
                 body: JSON.stringify({
                     name: this.props.loginReducer.name,
                     quizID: this.state.quizID,
-                    userscore: this.state.quizAttributes
+                    userScore
                 })
             }).then((response) => {
                 response.json()
