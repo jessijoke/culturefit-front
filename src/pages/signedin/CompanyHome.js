@@ -3,6 +3,7 @@ import SubNav from './components/SubNav'
 import { connect } from "react-redux";
 import './company.css'
 import './userquiz.css';
+import QuizScores from './components/QuizScores.js';
 
 class CompanyHome extends Component {
     constructor(props) {
@@ -30,7 +31,9 @@ class CompanyHome extends Component {
             ],
             uniqueQuizList: [
 
-            ]
+            ],
+            viewQuizzes: true,
+            currentQuiz: 0
         };
     }
 
@@ -38,7 +41,10 @@ class CompanyHome extends Component {
         return fetch('http://127.0.0.1:3001/user_attributes/unique', {
             method: "get",
             headers: {
-                "Content-Type": "application/json"
+                "Access-Control-Allow-Headers": "Authorization",
+                "Authorization": `Bearer ${localStorage.getItem('token')}`,
+                "Content-Type": "application/json",
+                "Accept": "application/json"
             }
         }).then((response) => response.json())
         .then(data => {
@@ -155,11 +161,14 @@ class CompanyHome extends Component {
             questions: this.state.questions
         }
         event.preventDefault();
-        console.log("Click")
+        //console.log("Click")
         return fetch('http://127.0.0.1:3001/quizzes', {
             method: "post",
             headers: {
-                "Content-Type": "application/json"
+                "Access-Control-Allow-Headers": "Authorization",
+                "Authorization": `Bearer ${localStorage.getItem('token')}`,
+                "Content-Type": "application/json",
+                "Accept": "application/json"
             },
             body: JSON.stringify(submitToServer)
         }).then((response) => {
@@ -203,6 +212,21 @@ class CompanyHome extends Component {
         })
     }
 
+    viewUniqueQuiz = (quizID) => (event) => {
+        event.preventDefault()
+        this.setState({
+            viewQuizzes: false,
+            currentQuiz: quizID
+        })
+    }
+
+    viewAllQuizScores = () => (event) => {
+        event.preventDefault()
+        this.setState({
+            viewQuizzes: true
+        })
+    }
+
     render() {
         const quizData = this.state.questions.map((quest, index) => {
             return (
@@ -243,7 +267,7 @@ class CompanyHome extends Component {
 
         const uniqueQuizzes = this.state.uniqueQuizList.map((quiz) => { return (
             <div className="quizLinks" key={quiz["id"]}>
-                <a href="/">
+                <a href="/" onClick={this.viewUniqueQuiz(quiz["id"])}>
                     <div className="quizLink">
                         {quiz["quiz"]["custom_quiz_hash"]["name"].toString()}
                     </div>
@@ -288,11 +312,16 @@ class CompanyHome extends Component {
                     :
                     <div>
                         <div className="allQuizzes">
-                
-                            <div className="quizNames">
-                                <div className="selectQuiz">Select a Quiz to View the Results:</div>
-                                {uniqueQuizzes}
-                            </div>
+                            {
+                                !!this.state.viewQuizzes ?
+                                    <div className="quizNames">
+                                        <div className="selectQuiz">Select a Quiz to View the Results:</div>
+                                        {uniqueQuizzes}
+                                    </div>
+                                :
+                                    <QuizScores backBtn={this.viewAllQuizScores} currentQuiz={this.state.currentQuiz}/>
+                            } 
+                            
                         </div>
                     </div>
                 }

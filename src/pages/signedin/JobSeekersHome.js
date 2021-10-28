@@ -15,10 +15,15 @@ class JobSeekersHome extends Component {
     }
 
     componentDidMount() {
+        let myToken = localStorage.getItem('token');
+        console.log(myToken)
         return fetch('http://127.0.0.1:3001/quizzes', {
             method: "get",
             headers: {
-                "Content-Type": "application/json"
+                "Access-Control-Allow-Headers": "Authorization",
+                "Authorization": `Bearer ${myToken}`,
+                "Content-Type": "application/json",
+                "Accept": "application/json"
             }
         }).then((response) => response.json())
         .then(data => {

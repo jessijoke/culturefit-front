@@ -13,16 +13,18 @@ class UserQuiz extends Component {
             quizComplete: false
         };
     }
-
     componentDidMount() {
         return fetch(`http://127.0.0.1:3001/quizzes/${this.props.currentQuiz}`, {
             method: "get",
             headers: {
-                "Content-Type": "application/json"
+                "Access-Control-Allow-Headers": "Authorization",
+                "Authorization": `Bearer ${localStorage.getItem('token')}`,
+                "Content-Type": "application/json",
+                "Accept": "application/json"
             }
         }).then((response) => response.json())
         .then(data => {
-            console.log(data) 
+            //console.log(data) 
             
             this.setState({ 
                 quizName: data.custom_quiz_hash.name,
@@ -66,7 +68,10 @@ class UserQuiz extends Component {
             return fetch('http://127.0.0.1:3001/user_attributes', {
                 method: "post",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Access-Control-Allow-Headers": "Authorization",
+                    "Authorization": `Bearer ${localStorage.getItem('token')}`,
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
                 },
                 body: JSON.stringify({
                     name: this.props.loginReducer.name,
