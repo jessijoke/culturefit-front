@@ -14,16 +14,6 @@ class Navigation extends Component {
             navBarLinks: ["/#/signup", "/#/signin"]
         }
     }
-    /*
-    componentDidMount = () => {
-        if (localStorage.getItem("user") != null && localStorage.getItem("token") != null) {
-            this.props.auth(localStorage.getItem("user"), localStorage.getItem("userType"))
-            this.setState({
-                isLoggedIn: true,
-                name: this.props.loginReducer.name
-            })
-        }
-    }*/
 
     loggedInNavbar = () => {
         if (this.props.loginReducer.name !== null && this.props.loginReducer.name !== undefined) {
@@ -31,7 +21,6 @@ class Navigation extends Component {
                 isLoggedIn: true,
                 name: this.props.loginReducer.name
             })
-            //console.log(this.globalState)
         } 
     }
 

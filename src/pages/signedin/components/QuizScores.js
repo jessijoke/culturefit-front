@@ -32,21 +32,35 @@ class QuizScores extends Component {
     }
 
     render() {
-        const quizScores = this.state.quizScores.map((data, index) => {
+        const allScores = Object.entries(this.state.quizScores).map(([keys, value])=>{
             return (
-                <div key={index}>
-                    <div>{data["user"]["name"].toString()}</div>
-                    <div></div>
+                <div className="quizLinks" key={keys}>
+                
+                {
+                    Object.entries(value).map(([scoreKey, scoreValue]) => {
+                        return (
+                            <div key={scoreKey}>
+                            {
+                                scoreKey === "user_id" ? 
+                                (<div>{scoreValue.name}</div>)
+                                :
+                                (<div>{scoreKey}: {scoreValue}</div>)
+                            }
+                            </div>
+                        )
+                    })
+                }
+                
                 </div>
-            )
-        })
+            );
+          })
+        
 
-        console.log(this.state.currentQuiz)
-        return (
+        return(
             <div className="quizNames">
                 <div className="selectQuiz">Test</div>
                 <div className="quizLinks">
-                {quizScores}
+                {allScores}
                 <button className="addBtn" onClick={this.props.backBtn()}>Back</button>
                 </div>
             </div>

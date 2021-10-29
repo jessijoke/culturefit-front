@@ -95,7 +95,8 @@ class UserQuiz extends Component {
     render() {
         const quizData = Object.entries(this.state.quizData).map(([k,value])=>{
             return (
-                <div className="questionSet" key={value.question_name.question_id}>
+                <div className="questionSet" key={value["question_id"]}>
+                {console.log(value["question_id"])}
                     <div key={value.question_name.question_id}>
                     {value.question_name.question}
                     </div>

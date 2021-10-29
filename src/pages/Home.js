@@ -6,10 +6,6 @@ import { HomeLoggedOut } from "./HomeLoggedOut";
 import HomeLoggedIn from "./HomeLoggedIn";
 
 class Home extends Component {
-  getState = () => {
-    console.log(this.globalState.loginReducer.loggedIn);
-    return this.globalState.loginReducer.loggedIn;
-  };
 
   render() {
     console.log("my props" + this.props.loginReducer.loggedIn);

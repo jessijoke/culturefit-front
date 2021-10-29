@@ -60,6 +60,7 @@ class Login extends Component {
       .then((data) => {
         //console.log("testing " + data)
         console.log("THIS IS MY DATA vvv")
+
         console.log(data)
         if (data.user.name === this.state.name) {
           this.props.auth(this.state.name, data.user.user_type);

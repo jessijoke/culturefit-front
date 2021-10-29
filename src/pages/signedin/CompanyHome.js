@@ -267,7 +267,10 @@ class CompanyHome extends Component {
 
         const uniqueQuizzes = this.state.uniqueQuizList.map((quiz) => { return (
             <div className="quizLinks" key={quiz["id"]}>
-                <a href="/" onClick={this.viewUniqueQuiz(quiz["id"])}>
+                <a href="/" onClick={this.viewUniqueQuiz(quiz["quiz"]["custom_quiz_hash"]["quiz_id"])}>
+                    {console.log(quiz["quiz"]["custom_quiz_hash"]["quiz_id"])
+                    //quiz["custom_quiz_hash"]["quiz_id"]
+                    }
                     <div className="quizLink">
                         {quiz["quiz"]["custom_quiz_hash"]["name"].toString()}
                     </div>
