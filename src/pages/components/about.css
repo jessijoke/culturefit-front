@@ -6,6 +6,9 @@
   -ms-flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
 }
 
 .aboutSectionFlex .aboutImage {

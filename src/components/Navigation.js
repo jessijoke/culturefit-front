@@ -48,6 +48,10 @@ class Navigation extends Component {
                     <div className="navElement">
                         <span className="signupInDivider">Welcome { this.props.loginReducer.name } </span>
                         <span className="signupInDivider"> | </span>
+                        <span className="signupInDivider"><Link to="/">Home</Link> </span>
+                        <span className="signupInDivider"> | </span>
+                        <span className="signupInDivider"><Link to="/chat">Chat</Link> </span>
+                        <span className="signupInDivider"> | </span>
                         <Link onClick={this.logout} to="/">Sign out</Link>
                     </div>
       

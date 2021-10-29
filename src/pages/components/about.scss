@@ -3,6 +3,7 @@
     display: flex;
     -ms-flex-direction: row;
     justify-content: space-around;
+    flex-direction: row;
     .aboutImage {
         max-width: 28%;
         .aboutTitle {
