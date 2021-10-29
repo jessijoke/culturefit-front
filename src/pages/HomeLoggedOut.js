@@ -1,3 +1,7 @@
+import About from './components/About'
+import Footer from './components/Footer'
+import "./home.css";
+
 export const HomeLoggedOut = () => {
     return (<div className="gridContainer">
 
@@ -9,15 +13,15 @@ export const HomeLoggedOut = () => {
         
         </div>
         <div className="secondSectionOverlap">
-        DUN DUN DUNNNNN
+            <About />
         </div>
 
         <div className="thirdSection">
-        <h2>Look at how important this section looks.</h2>
+        <h2>And a 2005 analysis revealed that employees who fit well with their organization, coworkers, and supervisor had greater job satisfaction, were more likely to remain with their organization, and showed superior job performance.</h2>
         </div>
 
         <div className="fourthSection">
-        footer
+            <Footer />
         </div>
     </div>)
 }

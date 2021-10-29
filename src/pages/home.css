@@ -3,8 +3,8 @@
   display: grid;
   -ms-grid-columns: 100%;
       grid-template-columns: 100%;
-  -ms-grid-rows: 60vh 5vh 40vh 5vh 60vh 30vh;
-      grid-template-rows: 60vh 5vh 40vh 5vh 60vh 30vh;
+  -ms-grid-rows: 60vh 5vh 40vh 5vh 60vh 20vh;
+      grid-template-rows: 60vh 5vh 40vh 5vh 60vh 20vh;
 }
 
 .firstSection {
@@ -118,5 +118,15 @@
   -ms-grid-row: 6;
   -ms-grid-row-span: 1;
   grid-row: 6/7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
 }
 /*# sourceMappingURL=home.css.map */
