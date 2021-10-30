@@ -66,7 +66,7 @@ class Navigation extends Component {
 
 const MSP = (globalState) => {
     //debugger
-    console.log('FROM CONNECT', globalState)
+    //console.log('FROM CONNECT', globalState)
     return globalState
 }
 

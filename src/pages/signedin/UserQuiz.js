@@ -129,7 +129,7 @@ class UserQuiz extends Component {
                         </div>
                     :
                     <div className="innerQuiz">
-                        <h2>quiz complete</h2>
+                        <h2>Survey complete</h2>
                         <button onClick={this.props.backBtn()}>Go Back</button>
                     </div>
                 }

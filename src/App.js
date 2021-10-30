@@ -27,7 +27,7 @@ function App(props) {
 
 const MSP = (globalState) => {
   //debugger
-  console.log('FROM APP', globalState)
+  //console.log('FROM APP', globalState)
   return globalState
 }
 

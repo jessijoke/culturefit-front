@@ -287,20 +287,20 @@ class CompanyHome extends Component {
                         {
                             this.state.quizSubmitted === false ? 
                             <div className="createQuizInner">
-                                <h2>Create Quiz</h2>
+                                <h2>Create Survey</h2>
                                 <div>
                                 <div>
                                     <div>
-                                        <label>Quiz Title:</label>
+                                        <label>Survey Title:</label>
                                     </div>
                                     <div>
-                                        <input onChange={this.titleHandleChange()} placeholder="example: Personality Quiz"/>
+                                        <input onChange={this.titleHandleChange()} placeholder="example: Personality Survey"/>
                                     </div>
                                 </div>
                                 {quizData}
                                 <button className="addBtn"  onClick={this.addQuestionBtn()}>Add Question</button>
                                 </div>
-                                <button onClick={this.handleSubmit()} className="submitBtn">Submit Quiz</button> 
+                                <button onClick={this.handleSubmit()} className="submitBtn">Submit Survey</button> 
                             </div>
                             :
                             <div className="createQuizInner">
@@ -318,7 +318,7 @@ class CompanyHome extends Component {
                             {
                                 !!this.state.viewQuizzes ?
                                     <div className="quizNames">
-                                        <div className="selectQuiz">Select a Quiz to View the Results:</div>
+                                        <div className="selectQuiz">Select a Survey to View the Results:</div>
                                         {uniqueQuizzes}
                                     </div>
                                 :
