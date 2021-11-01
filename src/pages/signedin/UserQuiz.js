@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import QuizContainer from "./QuizContainer"
 import './userquiz.css';
 
 class UserQuiz extends Component {
@@ -123,7 +124,8 @@ class UserQuiz extends Component {
                                 <h2>{this.state.quizName.toString()}</h2>
                             </div>
                             <form onSubmit={this.handleSubmit}>
-                            {quizData}
+                            <QuizContainer quiz={quizData} />
+                            
                             <button className="submit">Submit</button>
                             </form>
                         </div>

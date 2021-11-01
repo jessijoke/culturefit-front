@@ -88,5 +88,5 @@ const MDP = (dispatch) => {
         submitPost: (user, message) => dispatch(submitPost(user, message))
     }
   }
-
+//mapStateToProps MSP carrot
 export default connect(MSP, MDP)(Chat);

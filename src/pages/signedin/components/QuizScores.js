@@ -42,7 +42,7 @@ class QuizScores extends Component {
                             <div key={scoreKey}>
                             {
                                 scoreKey === "user_id" ? 
-                                (<div>{scoreValue.name}</div>)
+                                (<div>{scoreValue.name}:</div>)
                                 :
                                 (<div>{scoreKey}: {scoreValue}</div>)
                             }
