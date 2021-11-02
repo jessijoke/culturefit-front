@@ -11,13 +11,15 @@ class Chat extends Component {
     constructor(props) {
         super()
         this.state={
-            messages: ""
+            messages: "",
+            likeInput: 0
         }
     }
 
     componentDidMount() {
-        //console.log(this.props.getPosts())
+        console.log("a")
         this.props.getPosts()
+        console.log("b")
         console.log(this.props.loginReducer.name)
     }
 
@@ -50,6 +52,7 @@ class Chat extends Component {
                 {console.log(value["user"]["name"])}
                 <div className="chatName">{value["user"]["name"]}:</div>
                 <div className="chatMessage">{value["message"]}</div>
+                
                 </div>
             )
         })
@@ -68,6 +71,7 @@ class Chat extends Component {
                                 <div className="messageTitle">Add a message: </div>
                                 <input className="chatInput" name="message" ref= {el => this.todoTextElem = el} onChange={this.handleChange()}></input>
                                 <button className="submitBtn" onClick={this.handleSubmit()}>submit</button>
+                                
                             </div>
                         </div>
                     </div>

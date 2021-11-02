@@ -1,4 +1,5 @@
 export function getPosts() {
+  console.log("c")
     return (dispatch) => {
       dispatch({ type: "START_ADDING_POST_REQUEST" });
       fetch("http://127.0.0.1:3001/messages", {
