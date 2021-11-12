@@ -1,23 +1,26 @@
 {
   "files": {
-    "main.css": "/culturefit-front/static/css/main.17720024.chunk.css",
-    "main.js": "/culturefit-front/static/js/main.5164094e.chunk.js",
-    "main.js.map": "/culturefit-front/static/js/main.5164094e.chunk.js.map",
-    "runtime-main.js": "/culturefit-front/static/js/runtime-main.d0a530a4.js",
-    "runtime-main.js.map": "/culturefit-front/static/js/runtime-main.d0a530a4.js.map",
-    "static/js/2.d0896196.chunk.js": "/culturefit-front/static/js/2.d0896196.chunk.js",
-    "static/js/2.d0896196.chunk.js.map": "/culturefit-front/static/js/2.d0896196.chunk.js.map",
-    "static/js/3.89b646d2.chunk.js": "/culturefit-front/static/js/3.89b646d2.chunk.js",
-    "static/js/3.89b646d2.chunk.js.map": "/culturefit-front/static/js/3.89b646d2.chunk.js.map",
+    "main.css": "/culturefit-front/static/css/main.afcb7106.chunk.css",
+    "main.js": "/culturefit-front/static/js/main.e4f16b29.chunk.js",
+    "main.js.map": "/culturefit-front/static/js/main.e4f16b29.chunk.js.map",
+    "runtime-main.js": "/culturefit-front/static/js/runtime-main.10b2e97d.js",
+    "runtime-main.js.map": "/culturefit-front/static/js/runtime-main.10b2e97d.js.map",
+    "static/js/2.c9018b22.chunk.js": "/culturefit-front/static/js/2.c9018b22.chunk.js",
+    "static/js/2.c9018b22.chunk.js.map": "/culturefit-front/static/js/2.c9018b22.chunk.js.map",
+    "static/js/3.20574fda.chunk.js": "/culturefit-front/static/js/3.20574fda.chunk.js",
+    "static/js/3.20574fda.chunk.js.map": "/culturefit-front/static/js/3.20574fda.chunk.js.map",
     "index.html": "/culturefit-front/index.html",
-    "static/css/main.17720024.chunk.css.map": "/culturefit-front/static/css/main.17720024.chunk.css.map",
-    "static/js/2.d0896196.chunk.js.LICENSE.txt": "/culturefit-front/static/js/2.d0896196.chunk.js.LICENSE.txt",
-    "static/media/home.css": "/culturefit-front/static/media/employees2.4affe0f4.png"
+    "static/css/main.afcb7106.chunk.css.map": "/culturefit-front/static/css/main.afcb7106.chunk.css.map",
+    "static/js/2.c9018b22.chunk.js.LICENSE.txt": "/culturefit-front/static/js/2.c9018b22.chunk.js.LICENSE.txt",
+    "static/media/ask.8aa82c99.png": "/culturefit-front/static/media/ask.8aa82c99.png",
+    "static/media/home.css": "/culturefit-front/static/media/employees2.4affe0f4.png",
+    "static/media/people.b207c6ca.png": "/culturefit-front/static/media/people.b207c6ca.png",
+    "static/media/programmer.dd82f71e.png": "/culturefit-front/static/media/programmer.dd82f71e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.d0a530a4.js",
-    "static/js/2.d0896196.chunk.js",
-    "static/css/main.17720024.chunk.css",
-    "static/js/main.5164094e.chunk.js"
+    "static/js/runtime-main.10b2e97d.js",
+    "static/js/2.c9018b22.chunk.js",
+    "static/css/main.afcb7106.chunk.css",
+    "static/js/main.e4f16b29.chunk.js"
   ]
 }
