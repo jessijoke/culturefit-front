@@ -46,7 +46,7 @@ class Login extends Component {
   submitToServer = () => {
     const { history } = this.props;
 
-    return fetch("https://culturefitapp.heroku.com/login", {
+    return fetch("https://culturefitapp.herokuapp.com/login", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
