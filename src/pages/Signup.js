@@ -64,7 +64,7 @@ class Signup extends Component {
     submitToServer = () => {
         const { history } = this.props;
 
-        return fetch('https://culturefitapp.herokuapp.com/users', {
+        return fetch('https://cors-anywhere.herokuapp.com/https://culturefitapp.herokuapp.com/users', {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
