@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/culturefit-front/static/css/main.afcb7106.chunk.css",
-    "main.js": "/culturefit-front/static/js/main.3befb4db.chunk.js",
-    "main.js.map": "/culturefit-front/static/js/main.3befb4db.chunk.js.map",
-    "runtime-main.js": "/culturefit-front/static/js/runtime-main.10b2e97d.js",
-    "runtime-main.js.map": "/culturefit-front/static/js/runtime-main.10b2e97d.js.map",
-    "static/js/2.c9018b22.chunk.js": "/culturefit-front/static/js/2.c9018b22.chunk.js",
-    "static/js/2.c9018b22.chunk.js.map": "/culturefit-front/static/js/2.c9018b22.chunk.js.map",
-    "static/js/3.20574fda.chunk.js": "/culturefit-front/static/js/3.20574fda.chunk.js",
-    "static/js/3.20574fda.chunk.js.map": "/culturefit-front/static/js/3.20574fda.chunk.js.map",
-    "index.html": "/culturefit-front/index.html",
-    "static/css/main.afcb7106.chunk.css.map": "/culturefit-front/static/css/main.afcb7106.chunk.css.map",
-    "static/js/2.c9018b22.chunk.js.LICENSE.txt": "/culturefit-front/static/js/2.c9018b22.chunk.js.LICENSE.txt",
-    "static/media/ask.8aa82c99.png": "/culturefit-front/static/media/ask.8aa82c99.png",
-    "static/media/home.css": "/culturefit-front/static/media/employees2.4affe0f4.png",
-    "static/media/people.b207c6ca.png": "/culturefit-front/static/media/people.b207c6ca.png",
-    "static/media/programmer.dd82f71e.png": "/culturefit-front/static/media/programmer.dd82f71e.png"
+    "main.css": "/static/css/main.89142469.chunk.css",
+    "main.js": "/static/js/main.b49a3ff2.chunk.js",
+    "main.js.map": "/static/js/main.b49a3ff2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1833995c.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1833995c.js.map",
+    "static/js/2.c9018b22.chunk.js": "/static/js/2.c9018b22.chunk.js",
+    "static/js/2.c9018b22.chunk.js.map": "/static/js/2.c9018b22.chunk.js.map",
+    "static/js/3.20574fda.chunk.js": "/static/js/3.20574fda.chunk.js",
+    "static/js/3.20574fda.chunk.js.map": "/static/js/3.20574fda.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.89142469.chunk.css.map": "/static/css/main.89142469.chunk.css.map",
+    "static/js/2.c9018b22.chunk.js.LICENSE.txt": "/static/js/2.c9018b22.chunk.js.LICENSE.txt",
+    "static/media/ask.8aa82c99.png": "/static/media/ask.8aa82c99.png",
+    "static/media/home.css": "/static/media/employees2.4affe0f4.png",
+    "static/media/people.b207c6ca.png": "/static/media/people.b207c6ca.png",
+    "static/media/programmer.dd82f71e.png": "/static/media/programmer.dd82f71e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.10b2e97d.js",
+    "static/js/runtime-main.1833995c.js",
     "static/js/2.c9018b22.chunk.js",
-    "static/css/main.afcb7106.chunk.css",
-    "static/js/main.3befb4db.chunk.js"
+    "static/css/main.89142469.chunk.css",
+    "static/js/main.b49a3ff2.chunk.js"
   ]
 }
