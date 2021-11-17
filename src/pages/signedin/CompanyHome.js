@@ -39,7 +39,7 @@ class CompanyHome extends Component {
     }
 
     componentDidMount() {
-        return fetch('http://127.0.0.1:3001/user_attributes/unique', {
+        return fetch('https://culturefitapp.herokuapp.com/user_attributes/unique', {
             method: "get",
             headers: {
                 "Access-Control-Allow-Headers": "Authorization",
@@ -163,7 +163,7 @@ class CompanyHome extends Component {
         }
         event.preventDefault();
         //console.log("Click")
-        return fetch('http://127.0.0.1:3001/quizzes', {
+        return fetch('https://culturefitapp.herokuapp.com/quizzes', {
             method: "post",
             headers: {
                 "Access-Control-Allow-Headers": "Authorization",

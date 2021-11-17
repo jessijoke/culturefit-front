@@ -15,7 +15,7 @@ class UserQuiz extends Component {
         };
     }
     componentDidMount() {
-        return fetch(`http://127.0.0.1:3001/quizzes/${this.props.currentQuiz}`, {
+        return fetch(`https://culturefitapp.herokuapp.com/quizzes/${this.props.currentQuiz}`, {
             method: "get",
             headers: {
                 "Access-Control-Allow-Headers": "Authorization",
@@ -66,7 +66,7 @@ class UserQuiz extends Component {
               quizAttributes: userScore
           }, () => { console.log( this.state )})
           console.log(this.state.quizAttributes)
-            return fetch('http://127.0.0.1:3001/user_attributes', {
+            return fetch('https://culturefitapp.herokuapp.com/user_attributes', {
                 method: "post",
                 headers: {
                     "Access-Control-Allow-Headers": "Authorization",

@@ -3,7 +3,7 @@ export function submitPost(user, message) {
     console.log(user, message)
     return (dispatch) => {
       dispatch({ type: "START_ADDING_POST_REQUEST" });
-      fetch("http://127.0.0.1:3001/messages", {
+      fetch("https://culturefitapp.herokuapp.com/messages", {
         method: "post",
         headers: {
             "Access-Control-Allow-Headers": "Authorization",
