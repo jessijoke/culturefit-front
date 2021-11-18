@@ -36,6 +36,7 @@ class CompanyHome extends Component {
             viewQuizzes: true,
             currentQuiz: 0
         };
+        //console.log(this.state)
     }
 
     componentDidMount() {
@@ -266,21 +267,21 @@ class CompanyHome extends Component {
             )
         })
 
-        const uniqueQuizzes = this.state.uniqueQuizList.map((quiz) => { return (
-            <div className="quizLinks" key={quiz["id"]}>
-            {console.log(quiz["quiz"])}
+        // const uniqueQuizzes = this.state.uniqueQuizList.map((quiz) => { return (
+        //     <div className="quizLinks" key={quiz["id"]}>
+        //     {console.log(quiz["quiz"])}
                 
-                <a href="/" onClick={this.viewUniqueQuiz(quiz["quiz"]["custom_quiz_hash"]["quiz_id"])}>
-                    {
-                        console.log(quiz["quiz"]["custom_quiz_hash"]["quiz_id"])
+        //         <a href="/" onClick={this.viewUniqueQuiz(quiz["quiz"]["custom_quiz_hash"]["quiz_id"])}>
+        //             {
+        //                 console.log(quiz["quiz"]["custom_quiz_hash"]["quiz_id"])
                     
-                    }
-                    <div className="quizLink">
-                        {quiz["quiz"]["custom_quiz_hash"]["name"].toString()}
-                    </div>
-                </a>
-            </div>
-        )})
+        //             }
+        //             <div className="quizLink">
+        //                 {quiz["quiz"]["custom_quiz_hash"]["name"].toString()}
+        //             </div>
+        //         </a>
+        //     </div>
+        // )})
 
         return(
             <div className="companyHome">
@@ -323,7 +324,7 @@ class CompanyHome extends Component {
                                 !!this.state.viewQuizzes ?
                                     <div className="quizNames">
                                         <div className="selectQuiz">Select a Survey to View the Results:</div>
-                                        <QuizContainer quiz={uniqueQuizzes} />
+                                        {/*<QuizContainer quiz={uniqueQuizzes} />*/}
                                     </div>
                                 :
                                     <QuizScores backBtn={this.viewAllQuizScores} currentQuiz={this.state.currentQuiz}/>
